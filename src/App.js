@@ -1,9 +1,9 @@
 import NavbarCompo from "./components/NavbarComponent";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./components/Home";
 import Login from "./Pages/Login";
-import SignUp from "./Pages/SignUp";
+import SignUp from "./Pages/Register";
 
 function App() {
   return (

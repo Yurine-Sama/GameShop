@@ -1,7 +1,13 @@
 import React from "react";
+import { useState } from "react";
+
 
 export const Login = () => {
-  return <div>This is Login Page!</div>;
+  return (
+    <>
+      <h1>Hello word</h1>
+    </>
+  );
 };
 
 export default Login;
