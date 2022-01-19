@@ -24,6 +24,13 @@ export const Register = () => {
 
     const data = await response.json();
 
+    if (data.user) {
+      alert("Register Success");
+      window.location.href = "/Login";
+    } else {
+      alert("This email or password are already use!!");
+    }
+
     console.log(data);
   }
 

@@ -1,9 +1,12 @@
 import NavbarCompo from "./components/NavbarComponent";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Home from "./components/Home";
+import { Buffer } from 'buffer';
+import Home from "./Pages/Home"
 import Login from "./Pages/Login";
 import SignUp from "./Pages/Register";
+
+global.Buffer = Buffer;
 
 function App() {
   return (
@@ -12,9 +15,9 @@ function App() {
         <Router>
           <NavbarCompo />
           <Routes>
-            <Route path="/" element={<Home />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/SignUp" element={<SignUp />} />
+            <Route path="/Home" element={<Home />} />
+            <Route path="/login" exact element={<Login />} />
+            <Route path="/SignUp" exact element={<SignUp />} />
           </Routes>
         </Router>
       </main>
