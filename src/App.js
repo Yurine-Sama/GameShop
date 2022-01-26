@@ -1,12 +1,12 @@
 import NavbarCompo from "./components/NavbarComponent";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { Buffer } from 'buffer';
-import Home from "./Pages/Home"
+import Home from "./Pages/Home";
 import Login from "./Pages/Login";
 import SignUp from "./Pages/Register";
+import Dashboard from "./Pages/Dashboard";
 
-global.Buffer = Buffer;
+import Products from "./components/Products";
 
 function App() {
   return (
@@ -15,9 +15,10 @@ function App() {
         <Router>
           <NavbarCompo />
           <Routes>
-            <Route path="/Home" element={<Home />} />
+            <Route path="/" element={<Home />} />
             <Route path="/login" exact element={<Login />} />
             <Route path="/SignUp" exact element={<SignUp />} />
+            <Route path="/" exact render={(props) => <Dashboard />} />
           </Routes>
         </Router>
       </main>

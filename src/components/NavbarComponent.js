@@ -1,6 +1,7 @@
 import { Nav, Container, Navbar } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import LogoImg from "../assets/Logo.png";
+import { BsGift } from "react-icons/bs";
 
 const NavbarComp = () => {
   return (
@@ -21,6 +22,8 @@ const NavbarComp = () => {
               <Nav.Link href="#features">Features</Nav.Link>
             </Nav>
             <Nav>
+              <Nav.Link as={Link} to="/cart"></Nav.Link>
+              <BsGift />
               <Nav.Link as={Link} to="/Login">
                 Login
               </Nav.Link>

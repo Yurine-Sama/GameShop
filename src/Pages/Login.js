@@ -1,6 +1,7 @@
 import React from "react";
 import { Container, Form, Button, Row, Col } from "react-bootstrap";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import Axios from "axios";
 
 export const Login = () => {
   const [email, setEmail] = useState("");
@@ -19,12 +20,13 @@ export const Login = () => {
         password,
       }),
     });
-
+    Axios.defaults.withCredentials = true;
     const data = await response.json();
 
     if (data.user) {
+      localStorage.setItem("token", data.user);
       alert("Login Successful");
-      window.location.href = "/Home";
+      window.location.href = "/";
     } else {
       alert("Pls check your email and password");
     }
