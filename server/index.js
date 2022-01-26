@@ -93,19 +93,22 @@ app.post("/api/login", async (req, res) => {
       process.env.JWTPRIVATEKEY,
       { expiresIn: "30m" }
     );
-    const refreshToken = generateRefreshToken(isPasswordValid);
-    refreshToken.push(refreshTokens);
+    // const refreshToken = generateRefreshToken(isPasswordValid);
+    // refreshToken.push(refreshTokens);
     return res.json({ status: "ok", user: token });
   } else {
     return res.json({ status: "error", user: false });
   }
 });
 
-app.get("/Products", async (req, res) => {
-  // const products = new Game({ title: "GTA V", image: "xxx", price: "5000" });
+app.post("/api/insert", async (req, res) => {
+  const imageUrl = req.body.imageUrl;
+  const title = req.body.title;
+  const price = req.body.price;
+  const products = new Game({ imageUrl, title, price });
   try {
-    // await products.save();
-    res.send("Test Product here");
+    await products.save();
+    res.status(201).json("Created!!");
   } catch (error) {
     console.log(error);
   }
